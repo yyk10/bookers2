@@ -2,19 +2,19 @@
 <html>
   <head>
     <title>Bookers</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-   <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm ">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div class="container">
-          <a class="navbar-brand p-3" href="/"><!--< %= image_tag('logo.png') %>--></a>
+          <a class="navbar-brand p-3" href="/">Bookers</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,29 +23,37 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Home", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <i class="fa-duotone fa-house-chimney"></i>
+              <%= link_to "Home", new_user_registration_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Users', new_post_image_path, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-users"></i>
+              <%= link_to 'Users', new_user_session_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Books', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-book-open"></i>
+              <%= link_to 'Book', new_user_session_path, class: 'nav-link text-white' %>
             </li>
-             <li class="nav-item">
-              <%= link_to 'Log out', user_path(current_user.id), class: 'nav-link text-dark' %>
+            <li class="nav-item">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "Home", new_user_registration_path, class: 'nav-link text-dark' %>
+              <i class="fa-duotone fa-house-chimney"></i>
+              <%= link_to "Home",'/', class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to "About", new_user_registration_path, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-link"></i>
+              <%= link_to "About", about_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-user-plus"></i>
+              <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-white' %>
             </li>
             <% end %>
             </ul>
@@ -56,32 +64,16 @@
     <main class="mb-auto">
     <%= yield %>
     </main>
-    <footer class="bg-dark text-white pt-5 pb-4">
+    <footer class="bg text-black pt-5 pb-4">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-12">
-            <p>CopyRight Infratop.inc</p>
-            <!--< %= image_tag('logo-white.png') %>-->
+          <div class="col">
+            <p class="text-center">CopyRight Infratop.inc</p>
+
           </div>
-          <!--<div class="col-md-8">
-            <h6 class="text-white mt-2 mb-3">Link</h6>
-            <ul class="p-0 list-unstyled">
-              <li>
-                <a href="" title="About" class="text-white-50">会社概要</a>
-              </li>
-              <li>
-                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
-              </li>
-            </ul>
-          </div>-->
         </div>
       </div>
     </footer>
   </body>
 </html>
 
-
-  <!--<body>
-    < %= yield %>
-  </body>
-</html>
