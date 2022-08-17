@@ -1,7 +1,44 @@
+<!DOCTYPE html>
+<h2>User info</h2>
+<div>
+  <h3>name</h3><h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <% if @user == current_user %>
+   <p><%= link_to "編集", edit_user_path(@user) %> </p>
+  <% end %>
+</div>
 
 
+<h1>New book</h1>
+  <%= form_with model: @book do |f| %>
+    <h4>title</h4>
+      <%= f.text_field :book_name %>
+    <h4>Opinion</h4>
+      <%= f.text_area :caption %>
+    <%= f.submit 'Create Book' %>
+  <% end %>
+
+
+<% @book.each do |book| %>
+<div>
+  <%= link_to book_path(book.id) do %>
+    <%= image_tag book.get_image %>
+  <% end %>
+  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+  <%= link_to book_path(book.id) do %>
+  <p><%= book.title %></p>
+  <% end %>
+  <p><%= book.caption %></p>
+  <!--<p>ユーザーネーム：< %= post_image.user.name %></p>
+</div>
+<% end %>
 
 
 
 <h1>Books#index</h1>
 <p>Find me in app/views/books/index.html.erb</p>
+ <!--form_with を利用して、post_images_path/post_imagesに画像をアップロードします。
+画像アップロードフィールドは、< %= f.file_field :image, accept: "image/*" %>で実装しています。
+
+
+ <%= f.file_field :image, accept: "image/*" %>

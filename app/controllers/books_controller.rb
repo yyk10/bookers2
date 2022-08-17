@@ -11,10 +11,23 @@ class BooksController < ApplicationController
     # 4. トップ画面へリダイレクト
     redirect_to 'book_path'
   end
+  
   def index
+    @books = Book.page(params[:id])
+   
 
   end
 
   def show
+  end
+  
+  def edit
+  end
+  
+  
+  private
+
+  def book_params
+    params.require(:book).permit(:book_name, :image, :caption)
   end
 end
