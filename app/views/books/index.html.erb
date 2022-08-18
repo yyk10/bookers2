@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <h2>User info</h2>
-<div>
+<div> 
+  
   <h3>name</h3><h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
   <% if @user == current_user %>
@@ -9,26 +10,27 @@
 </div>
 
 
-<h1>New book</h1>
-  <%= form_with model: @book do |f| %>
+<!--<h1>New book</h1>
+  < %= form_with model: @book do |f| %>
     <h4>title</h4>
-      <%= f.text_field :book_name %>
+      < %= f.text_field :book_name %>
     <h4>Opinion</h4>
-      <%= f.text_area :caption %>
-    <%= f.submit 'Create Book' %>
-  <% end %>
+      < %= f.text_area :caption %>
+    < %= f.submit 'Create Book' %>
+  < % end %>
 
 
-<% @book.each do |book| %>
+<% @books.each do |book| %>
 <div>
   <%= link_to book_path(book.id) do %>
     <%= image_tag book.get_image %>
   <% end %>
   <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <%= link_to book_path(book.id) do %>
+  <%= link_to book_path(book.params[:id]) do %>
   <p><%= book.title %></p>
   <% end %>
   <p><%= book.caption %></p>
+  <%=link_to "edit",edit_blog_path(blog.id) %>
   <!--<p>ユーザーネーム：< %= post_image.user.name %></p>
 </div>
 <% end %>
@@ -41,4 +43,4 @@
 画像アップロードフィールドは、< %= f.file_field :image, accept: "image/*" %>で実装しています。
 
 
- <%= f.file_field :image, accept: "image/*" %>
+ <!--< %= f.file_field :image, accept: "image/*" %>
