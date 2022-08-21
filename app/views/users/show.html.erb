@@ -17,7 +17,12 @@
 </div>
 <% end %>
 
-
+<% if @book.user == current_user %>
+    <%= link_to "削除", book_path(@book), method: :delete %>
+  <% end %>
+<% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
 
 
 <h1>Users#show</h1>
