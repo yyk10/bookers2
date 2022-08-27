@@ -1,3 +1,69 @@
+<!DOCTYPE html>
+<div class="container">
+    <!-- row (行) の指定 -->
+    <div class="row">
+<div class="col-sm-3">
+<table class="table">
+ <h3>User info</h3>
+ <!--%= image_tag @user.get_profile_image(100,100) %-->
+   <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col"><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th scope="col">introduction</th>
+      <th scope="col"><%= @user.introduction %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+    </tr>
+    </tbody>
+    </table>
+
+<% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+
+<h3>New book</h3>
+<%= form_with model: @book do |f| %>
+    <h4>title</h4>
+      <%= f.text_field :title %>
+    <h4>Opinion</h4>
+      <%= f.text_area :body %>
+    <% if user_signed_in? %>
+    <%= f.submit 'Create Book' %>
+    <% end %>
+
+<% end %>
+</div>
+<div class="col-sm-1"></div>
+
+<div class="col-sm-8">
+
+    <h3>Users</h3>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 
 
 
@@ -5,6 +71,3 @@
 
 
 
-
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>

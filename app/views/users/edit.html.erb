@@ -1,11 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+<body>
+<div class="mx-auto" style="width: 200px;">
 <h2>User info</h2>
 <%= form_with model: @user do |f| %>
   <label for="inputName">Name</label>
-  <div><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+  <div><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:""%>
   <div><label for="inputImage">Image</label>
   <div><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
   <div><label for="inputIntroduction">Introduction</label>
-  <div><%= f.text_field :introduction, autofocus: true, id:"introduction",placeholder:"説明"%>
-  <div><%= f.submit "Update User" %></div>
+  <div><%= f.text_field :caption, autofocus: true, id:"inputintroduction",placeholder:""%>
+  <div><input class="btn btn-secondary" type="submit" value="Update User"></div>
 <% end %>
+</div>
+</body>
+</html>
 

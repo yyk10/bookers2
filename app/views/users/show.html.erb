@@ -1,23 +1,35 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-</div>
-
-<!-- ユーザーの投稿一覧 -->
+<!DOCTYPE html>
+<html>
+    <!-- row (行) の指定 -->
+<div class="container">    
+   <div class="row">
+      <div class="col-sm-3">
+<table class="table">
+ <h3>User info</h3>
+ <%= image_tag @user.get_profile_image(100,100) %>
+    
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col"><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th scope="col">introduction</th>
+      <th scope="col"><%= @user.introduction %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+    </tr>
+    </tbody>
+    </table>
 
 <% @books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>タイトル：<%= book.book_name %></p>
-  <p>説明：<%= book.caption %></p>
-  <p>ユーザーネーム：<%= book.user.name %></p>
-</div>
+
 <% end %>
 
-<% if @book.user == current_user %>
+<% if @book == current_user %>
     <%= link_to "削除", book_path(@book), method: :delete %>
   <% end %>
 <% if @user == current_user %>
@@ -25,5 +37,55 @@
   <% end %>
 
 
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+  <!--% end %-->
+ <!--i class="fa fa-solid fa-user-gear"></i-->
+
+<%= form_with model: @book do |f| %>
+<h3>New book</h3>
+ 
+   <h4>title</h4>
+      <%= f.text_field :title %>
+    <h4>Opinion</h4>
+      <%= f.text_area :body %>
+      
+    <div><%= f.submit 'Create Book' %></div>
+  
+<% end %>
+</div>
+
+<div class="col-sm-1"></div>
+
+<div class="col-sm-8">
+    <h3>Books</h3>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+    <tr>
+      <th scope="row"></th>
+      <td>
+       <p><%= image_tag book.user.get_profile_image(100,100) %>
+       </p>
+      </td>
+      <td>
+        <%= link_to book_path(book.id) do %>
+        <p><%= book.title %></p>
+        <% end %></td>
+      <td><p><%= book.body %></p></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+</div>
+</div>
+
+</html>
+
+

@@ -1,49 +1,96 @@
 <!DOCTYPE html>
-<!--<h2>User info</h2>
-<div>
-  < %= form_with model: @user do |f| %>
-  <h3>name</h3>< %= @book.user %>
-  <!--<p>< %= image_tag book.user.get_profile_image(100,100) %></p>
-  <h3>introduction</h3>
-  < % if @user == current_user %>
-   <p> < %= link_to "編集", edit_user_path(@user) %> </p>
-  < % end %>
-  < % end %>
-</div>-->
+
+<div class="container">
+    <!-- row (行) の指定 -->
+    <div class="row">
+<div class="col-sm-3">
+<table class="table">
+ <h3>User info</h3>
+ <!--%= image_tag @user.get_profile_image(100,100) %-->
+    
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col"><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th scope="col">introduction</th>
+      <th scope="col"><!--%= @user.caption %--></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+    </tr>
+    </tbody>
+    </table>
 
 
-<h3>New book</h3>
-  <%= form_with model: @book do |f| %>
-   
-    <h4>title</h4>
-      <%= f.text_field :bookname %>
-    <h4>Opinion</h4>
-      <%= f.text_area :caption %>
-    <% if user_signed_in? %>
-   <div><%= button_to "Create Book", {controller: 'books', action: 'new'}, {method: :get} %>
-　 <% end %>
-    <!--<div>< %= f.submit 'Create Book' % -->
+<% if @book == current_user %>
+    <%= link_to "削除", book_path(@book), method: :delete %>
+  <% end %>
+<% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
 
-<h1>Books</h1>
-<% @books.each do |book| %>
-<div>
-  <p><%= post_image.user.name %></p>
-  <%= image_tag book.get_image %>
+  <!--% end %-->
+ <!--i class="fa fa-solid fa-user-gear"></i-->
 
-  <p><%= book.title %></p>
-  <p><%= book.caption %></p>
-  <%=link_to "edit",edit_book_path(book.id) %>
+<%= form_with model: @book do |f| %>
+<h3>New book</h3>
+ 
+   <h4>title</h4>
+      <%= f.text_field :title %>
+    <h4>Opinion</h4>
+      <%= f.text_area :body %>
+    <div><%= f.submit 'Create Book' %></div>
+  <% end %>
+  </div>
+  
+  
+  <div class="col-sm-1"></div>
+   
+   <div class="col-sm-8">   
+    <h3>Books</h3>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+    
+
+
+<!--<h1>Book detail</h1>
+< % @books.each do |book| %>
+
+  < %= image_tag book.get_image %>
+  <!--p>投稿ユーザー画像：< %= image_tag ' sample-author1.jpg' %></p>
+  <p>ショップ名：< %=book.bookname %></p>
+  <p>説明：< %= book.caption %></p>
+  <p>ユーザーネーム：< %= book.user.name %></p>
+   < %=link_to "edit",edit_book_path(book.id) %>
+< % end %-->
+
+
+<!--< % @books.each do |book| %>
+<div>
+  <p>< %= post_image.user.name %></p>
+   < %= image_tag book.get_image %>
+
+  <p>< %= book.title %></p>
+  <p>< %= book.caption %></p>
+  < %=link_to "edit",edit_book_path(book.id) %>
   <!--<p>ユーザーネーム：< %= post_image.user.name %></p>
 </div>
-<% end %>
-
-
-
-
-
- <!--form_with を利用して、post_images_path/post_imagesに画像をアップロードします。
-画像アップロードフィールドは、< %= f.file_field :image, accept: "image/*" %>で実装しています。
-
-
- <!--< %= f.file_field :image, accept: "image/*" %>
+ < % end %>
