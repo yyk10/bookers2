@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
    <head>
 
@@ -17,12 +17,15 @@
 <h2>Editing Book</h2>
 <%= form_with model: @book do |f| %>
   <label for="inputName">Title</label>
-  <div><%= f.text_field :bookname, autofocus: true, id:"BookName", placeholder:"本の名前"%>
+  <div><%= f.text_field :title, autofocus: true, id:"BookName", placeholder:""%>
 
   <div><label for="inputIntroduction">Introduction</label>
-  <div><%= f.text_field :caption, autofocus: true, id:"caption",placeholder:"説明"%>
-  <div><%= f.submit "Update Book" %></div>
+  <div><%= f.text_field :body, autofocus: true, id:"caption",placeholder:""%>
+  <div><%= f.submit "Update Book",class: "btn btn-success" %></div>
 <% end %>
+<%= link_to "Show" , book_path(@book) %>
+|
+<%= link_to "Back" , books_path(@book) %>
 </div>
 </body>
 </html

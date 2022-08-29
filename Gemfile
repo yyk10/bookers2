@@ -66,3 +66,5 @@ gem 'net-pop'
 
 gem "image_processing"
 gem "mini_magick"
+
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def index
    @users = User.all
+   @user = current_user
   end
 
   def edit
@@ -17,19 +18,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(@user.id)
-      redirect_to user_path(@user.id), notice: 'success'
+    if @user.update(user_params)
+      redirect_to user_path(@user.id), notice: 'Successfully updated user information'
     else
       render :edit
     end
-    #@user.update
-    #redirect_to user_path
   end
 
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :image, :introduction)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 end

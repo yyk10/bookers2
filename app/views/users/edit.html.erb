@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-   
+
     <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +10,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
+
 <body>
 <div class="mx-auto" style="width: 200px;">
 <h2>User info</h2>
@@ -20,7 +20,7 @@
   <div><label for="inputImage">Image</label>
   <div><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
   <div><label for="inputIntroduction">Introduction</label>
-  <div><%= f.text_field :caption, autofocus: true, id:"inputintroduction",placeholder:""%>
+  <div><%= f.text_field :introduction, autofocus: true, id:"inputintroduction",placeholder:""%>
   <div><input class="btn btn-secondary" type="submit" value="Update User"></div>
 <% end %>
 </div>
