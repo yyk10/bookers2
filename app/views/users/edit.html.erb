@@ -12,8 +12,24 @@
   </head>
 
 <body>
+  
 <div class="mx-auto" style="width: 200px;">
+ 
 <h2>User info</h2>
+ <%= form_with(model: @uer, local: true) do |form| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@user.errors.count, "error") %> prohibited user from being saved:</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+       </ul>
+  </div>
+  </div>
+  <% end %>
+
+<% end %>
 <%= form_with model: @user do |f| %>
   <label for="inputName">Name</label>
   <div><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:""%>

@@ -1,5 +1,5 @@
+<%= form_with(model: book, local: true) do |form| %>
 <% if book.errors.any? %>
-  <div class="alert alert-danger" role="alert">
   <div id="error_explanation">
     <h3><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h3>
     <ul>
@@ -9,8 +9,10 @@
        </ul>
   </div>
   </div>
+  <% end %>
 
 <% end %>
+
 
 <div class="container">    
    <div class="row">

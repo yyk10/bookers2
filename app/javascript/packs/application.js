@@ -14,6 +14,9 @@ import "bootstrap";
 import "../stylesheets/application"
 import "@fortawesome/fontawesome-free/js/all"
 
+//= require jquery3
+//= require jquery_ujs
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

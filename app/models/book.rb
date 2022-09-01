@@ -4,7 +4,7 @@ class Book < ApplicationRecord
 
    validates :body, presence: true
    validates :title, presence: true
-   validates :bo, length: {maximum: 200}
+   validates :body, length: {maximum: 200}
   
 
 
