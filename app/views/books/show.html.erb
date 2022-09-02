@@ -1,7 +1,7 @@
 <%= render 'list', user: @book.user, book: @book %>
-  
+
   <div class="col-1"></div>
-  
+
   <div class="col-8">
   <h3>Book detail</h3>
     <table class="table">
@@ -20,7 +20,7 @@
       </td>
       <td scope="row">
         <% if @book.user == current_user %>
-        <%= link_to "destroy", book_path(@book.id),class: "btn btn-sm btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" %> 
+        <%= link_to "destroy", book_path(@book.id),class: "btn btn-sm btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </button>
         <% end %>
 </td>

@@ -1,3 +1,9 @@
+ 
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+ <script src="https://kit.fontawesome.com/30d49815c9.js" crossorigin="anonymous"></script>
+
+
+
 <%= form_with(model: book, local: true) do |form| %>
 <% if book.errors.any? %>
   <div id="error_explanation">
@@ -14,47 +20,47 @@
 <% end %>
 
 
-<div class="container">    
+<div class="container">
    <div class="row">
       <div class="col-sm-3">
 <table class="table">
-  
+
  <h3>User info</h3>
  <%= image_tag user.get_profile_image(100,100) %>
-    
+
   <thead>
     <tr>
       <th scope="col">name</th>
       <th scope="col"><%= user.name %></th>
     </tr>
     <tr>
-      <th scope="col">introduction</th>
+      <th>introduction</th>
       <th scope="col"><%= user.introduction %></th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row"></th>
-    </tr>
-    </tbody>
     </table>
 
 <% if user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
+    <button>
+    <p><span class="glyphicon glyphicon-fa fas fa-user-cog" aria-hidden="true "></span>
+    </button>
   <% end %>
+<!-- <i class="fas fa-user-cog"></i> Font Awesome fontawesome.com -->
 
 
 <%= form_with model: Book.new do |f| %>
 <h3>New book</h3>
 
-   
- 
+
+
    <h4>title</h4>
       <%= f.text_field :title %>
     <h4>Opinion</h4>
       <%= f.text_area :body %>
-      
+
     <div><%= f.submit 'Create Book', class: "btn btn-success" %></div>
-  
+
 <% end %>
 </div>
+
+link_to "edit_user_path(user)"

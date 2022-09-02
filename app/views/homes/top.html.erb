@@ -1,39 +1,36 @@
 
 <html>
-  <head>
 
-    <title>Bookers</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-  </head>
-
-  <body>
+  <main>
+     
+    <section class="container">
+      <div class="mt-0"></div>
+       <div class= "mx-auto col-11 col-sm-10 col-lg-8 col-xl-6" >
+          <link rel="stylesheet" href="css/bootstrap.min.css">
+          <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
      <div class = "row">
-    <div class= "mx-auto col-11 col-sm-10 col-lg-8 col-xl-4" >
-   <!-- cass="d-flex flex-column vh-100"-->
+      
     <h1>welcome to
     <i class="fa fa-solid fa-book"></i>
     <strong>Bookers</strong> !!</h1>
-
-    <p>
-      In  <i class="fa fa-solid fa-book"></i>
-      Bookers,</br>
-      you can share and exchange your opinions , inpressions , and emotions</br>
-      about various books!
-    </p>
-    <div class="d-grid gap-2 col-6 mx-auto">
-     <%= link_to 'Log in', new_user_session_path, class: "btn btn-danger" %>
-     <%= link_to 'Sign up', new_user_registration_path , class: "btn btn-success" %>
-    </div>
-    </div>
-    </div>
-    </div>
-    </body>
+    　<div><p>In <i class="fa fa-solid fa-book"></i> Bookers,</p>
+      <p>you can share and exchange your opinions , inpressions , and emotions</p>
+      <p>about various books!</p>
+     </div>
+    
+      <div class="d-grid gap-2 col-10 mx-auto">
+        <div class="row"><%= link_to 'Log in', new_user_session_path, class: "btn btn-info btn-block class= mb-3 " %></div>
+      <div></div>
+        <div class="row"><%= link_to 'Sign up', new_user_registration_path , class: "btn btn-success btn-block" %></div>
+      </div>
+      
+      </div>
+      
+     </div>
+     </div>
+    </section>
+    </main>
 </html>
 
+   <p><span class="glyphicon glyphicon-fa fas fa-user-cog" aria-hidden="true"></span>
