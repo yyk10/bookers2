@@ -3,7 +3,7 @@
  <script src="https://kit.fontawesome.com/30d49815c9.js" crossorigin="anonymous"></script>
 
 
-
+  
 <%= form_with(model: book, local: true) do |form| %>
 <% if book.errors.any? %>
   <div id="error_explanation">
@@ -34,16 +34,19 @@
       <th scope="col"><%= user.name %></th>
     </tr>
     <tr>
-      <th>introduction</th>
-      <th scope="col"><%= user.introduction %></th>
+      <th style="border-bottom: none;">introduction</th>
+      <th style="border-bottom: none;" scope="col"><%= user.introduction %></th>
     </tr>
   </thead>
     </table>
 
 <% if user == current_user %>
-    <button>
-    <p><span class="glyphicon glyphicon-fa fas fa-user-cog" aria-hidden="true "></span>
-    </button>
+<button type="button" class="btn btn-outline-secondary  btn-block">
+ <%= link_to  edit_user_path(user), class: 'btn btn-default' do  %>
+  <i class="fa fas fa-user-cog" style="color: gray;"></i>
+  <span></span>
+  </button>
+ <% end %>
   <% end %>
 <!-- <i class="fas fa-user-cog"></i> Font Awesome fontawesome.com -->
 
@@ -63,4 +66,3 @@
 <% end %>
 </div>
 
-link_to "edit_user_path(user)"
