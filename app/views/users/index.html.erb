@@ -2,9 +2,9 @@
 <html>
 
 <%= render 'books/list', user: @user, book: @user %>
-<div class="col-sm-1"></div>
 
-<div class="col-sm-8">
+
+<div class="col-md-8 offset-md-1">
 
     <h3>Users</h3>
     <table class="table">
@@ -20,7 +20,7 @@
     <tr>
       <td> <%= image_tag user.get_profile_image(100,100) %></td>
       <td><%= user.name %></td>
-      <td><%= link_to "show", user_path(user.id) %></td>
+      <td><%= link_to "Show", user_path(user.id) %></td>
     </tr>
     <% end %>
   </tbody>

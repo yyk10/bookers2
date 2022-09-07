@@ -25,9 +25,9 @@
       <div><%= f.text_area :body, autofocus: true, id:"caption",placeholder:""%>
       <div><%= f.submit "Update Book",class: "btn btn-success" %>
      <% end %>
-     <%= link_to "Show" , book_path(@book) %>
+     <div><%= link_to "Show" , book_path(@book) %>
      |
-    <%= link_to "Back" , books_path(@book) %>
+    <%= link_to "Back" , "/books" %>
     </div>
     </body>
     </html>

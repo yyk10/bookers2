@@ -8,6 +8,7 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
 
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <script src="https://kit.fontawesome.com/30d49815c9.js" crossorigin="anonymous"></script>
@@ -37,17 +38,17 @@
             </li>
             <li class="nav-item">
               <%= link_to  users_path, class: 'nav-link text-white' do %>
-                <i class="fa fa-solid fa-users"></i> Users
+                <i class="fas fa-solid fa-users"></i> Users
                <% end %>
             </li>
             <li class="nav-item">
               <%= link_to  books_path, class: 'nav-link text-white' do %>
-                <i class="fa fa-solid fa-book-open"></i> Book
+                <i class="fas fa-book-open"></i> Books
                <% end %>
             </li>
             <li class="nav-item">
                <%= link_to destroy_user_session_path, class: 'nav-link text-white', method: :delete do %>
-                <i class="fa fas fa-sign-in-alt"></i> Log out
+                <i class="fas fa-sign-out-alt"></i> Log out
                <% end %>
             </li>
             <% else %>
@@ -58,12 +59,12 @@
             </li>
             <li class="nav-item">
               <%= link_to  about_path, class: 'nav-link text-white' do %>
-                <i class="fa-solid fa-link"></i> About
+                <i class="fas fa-link"></i> About
                <% end %>
             </li>
             <li class="nav-item">
               <%= link_to  new_user_registration_path, class: 'nav-link text-white' do %>
-                <i class="fa fa-solid fa-user-plus"></i> Sign up
+                <i class="fas fa-user-plus"></i> Sign up
                <% end %>
             </li>
             <li class="nav-item">

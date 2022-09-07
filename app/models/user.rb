@@ -7,6 +7,7 @@ class User < ApplicationRecord
     #validates :name,:introduction,presence: true
     validates :introduction, length: {maximum: 50}
     validates :name, length: {minimum:2,maximum: 20}
+    validates :name, uniqueness: true
 
 
   has_many :books, dependent: :destroy
