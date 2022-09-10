@@ -38,9 +38,12 @@ class BooksController < ApplicationController
     if @book.update (book_params)
     redirect_to book_path, notice: 'Book information updated successfully'
     else
+     if @book.update(book_params)
+        redirect_to book_path(@book.id)
+     else
     render :edit , status: :unprocessable_entity
     end
-    
+   end
  end
 
  def destroy
@@ -54,7 +57,7 @@ class BooksController < ApplicationController
  def book_params
   params.require(:book).permit(:title, :body)
  end
- 
+
  def correct_user
     @book = Book.find(params[:id])
     @user = @book.user

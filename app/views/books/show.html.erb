@@ -1,11 +1,11 @@
 <%= render 'list', user: @book.user, book: @book %>
-  
-  
+
+
   <div class="col-md-8 offset-md-1">
   <h3>Book detail</h3>
     <table class="table">
   <thead>
-    
+
     <tr>
       <td scope="row">
        <%= image_tag @book.user.get_profile_image(100,100) %></br>
@@ -16,15 +16,15 @@
       <td scope="row">
           <% if @book.user == current_user %>
         <%= link_to "Edit", edit_book_path(@book.id) ,class: "btn btn-success" %>
-        
+
       </td>
       <td scope="row">
-        <%= link_to "Destroy", book_path(@book.id),class: "btn btn-sm btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" %> 
+        <%= link_to "Destroy", book_path(@book.id),class: "btn btn-sm btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </button>
       <% end %>
 </td>
     </tr>
-     
+
   </thead>
   <tbody>
     <tr>
